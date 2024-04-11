@@ -1,33 +1,42 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    #region Variables
     private NavMeshAgent myNavMeshAgent;
     private Transform targetTransform;
     [SerializeField] private float stoppingDistance;
+    #endregion
 
-    private void Start(){
+    private void Start()
+    {
         myNavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
         targetTransform = GameObject.FindGameObjectWithTag("Tower").transform;
     }
 
     private void Update()
     {
-        if (DistanceToTarget() > stoppingDistance){
+        if (DistanceToTarget() > stoppingDistance)
+        {
             myNavMeshAgent.destination = targetTransform.position;
             Vector3.MoveTowards(transform.position, myNavMeshAgent.destination, 0.2f);
         }
-        else{
+        else
+        {
             myNavMeshAgent.destination = transform.position;
         }
     }
 
-    private float DistanceToTarget(){
+    #region Functions
+    /// <summary>
+    /// Calculate distance to the target
+    /// </summary>
+    /// <returns></returns>
+    private float DistanceToTarget()
+    {
         var distance = targetTransform.transform.position - transform.position;
         return distance.magnitude;
     }
+    #endregion
 }
