@@ -1,14 +1,18 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlayerStats", menuName = "ScriptableObjects/PlayerStats", order = 1)]
-public class PlayerStats : ScriptableObject
+namespace Scripts
 {
-    float attackDamage;
-    float health; 
-    float attackSpeed;
-    float healthRegen;
-    float criticalChance;
-    float criticalDamage;
-    float range;
+    [CreateAssetMenu(fileName = "PlayerStats", menuName = "ScriptableObjects/PlayerStats", order = 1)]
+    [Serializable]
+    public class PlayerStats : ScriptableObject
+    {
+        [SerializeField] private float attackDamage;
+        [SerializeField] private float health;
+        [SerializeField] private float attackSpeed;
+        [SerializeField] private float healthRegen;
+        [SerializeField] private float criticalChance;
+        [SerializeField] private float criticalDamage;
+        [SerializeField] private float range;
+    }
 }
