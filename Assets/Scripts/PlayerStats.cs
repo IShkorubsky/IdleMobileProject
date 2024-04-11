@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[Serializable]
+[CreateAssetMenu(fileName = "PlayerStats", menuName = "ScriptableObjects/PlayerStats", order = 1)]
 public class PlayerStats : ScriptableObject
 {
     float attackDamage;
