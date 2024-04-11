@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scripts
@@ -15,6 +16,12 @@ namespace Scripts
         {
 
         }
-    }
-}
 
+        
+    //Get closest enemy
+
+    //Rotate towards closest enemy
+    //Attack closest enemy
+    }
+
+}

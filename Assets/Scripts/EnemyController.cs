@@ -5,7 +5,7 @@ public class EnemyController : MonoBehaviour
 {
     #region Variables
     private NavMeshAgent myNavMeshAgent;
-    private Transform targetTransform;
+    protected Transform targetTransform;
     [SerializeField] private float stoppingDistance;
     #endregion
 
@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
         if (DistanceToTarget() > stoppingDistance)
         {
             myNavMeshAgent.destination = targetTransform.position;
-            Vector3.MoveTowards(transform.position, myNavMeshAgent.destination, 0.2f);
+            Vector3.MoveTowards(transform.position, myNavMeshAgent.destination, 0.1f);
         }
         else
         {
