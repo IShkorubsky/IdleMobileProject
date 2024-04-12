@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -45,6 +46,17 @@ namespace Scripts
         void Update()
         {
 
+        }
+
+        public void AddEnemyToList(GameObject enemy){
+            enemies.Add(enemy.gameObject);
+        }
+
+        public GameObject GetClosestEnemy(){
+            if(enemies == null){
+                Debug.LogError("Enemy list is empty");
+            }
+            return enemies[0];
         }
     }
 }

@@ -23,7 +23,8 @@ namespace Scripts
             if (enemyPrefab != null)
             {
                 var myEnemy = Instantiate(_enemyPrefab, _spawnPosition.position, transform.rotation);
-                //enemies missing rotation towards target
+                GameManager.Instance.AddEnemyToList(myEnemy);
+                myEnemy.transform.LookAt(targetTransform);
                 myEnemy.SetActive(true);
             }
         }
