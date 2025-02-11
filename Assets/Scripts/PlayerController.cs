@@ -10,6 +10,7 @@ namespace Scripts
         [SerializeField] private Transform projectileSpawn;
         [SerializeField] private float projectileSpeed;
         [SerializeField] private float attackRange;
+        
         private GameObject currentTarget;
 
         private Animator myAnimator;
@@ -17,7 +18,6 @@ namespace Scripts
         private void Start()
         {
             myAnimator = gameObject.GetComponent<Animator>();
-            
         }
 
         private void Update()
@@ -31,6 +31,7 @@ namespace Scripts
             {
                 AttackEnemy(currentTarget);
             }
+
         }
 
         //Attack closest enemy
@@ -39,9 +40,12 @@ namespace Scripts
             //Rotate towards closest enemy
             transform.LookAt(_currentTarget.transform, Vector3.up);
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            //play attack animation
-            myAnimator.SetTrigger("1H Attack");
-            isAttacking = true;
+            //Play attack animation
+            if (DistanceToTarget(_currentTarget) <= playerStats.range)
+            {
+                myAnimator.SetTrigger("1H Attack");
+                isAttacking = true;
+            }
         }
 
         public void SpawnProjectile()
@@ -52,6 +56,13 @@ namespace Scripts
             var direction = transform.position - currentTarget.transform.position;
             //move projectile to enemy
             myProjectile.GetComponent<Rigidbody>().AddForce(-direction * projectileSpeed, ForceMode.Force);
+        }
+
+        private float DistanceToTarget(GameObject targetGameObject)
+        {
+            var distance = 0f;
+            distance = (transform.position - targetGameObject.transform.position).magnitude;
+            return distance;
         }
     }
 }

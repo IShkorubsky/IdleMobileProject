@@ -18,4 +18,6 @@ MonoBehaviour:
   healthRegen: 1
   criticalChance: 1
   criticalDamage: 1
-  range: 10
+  range: 15
+  characterLevel: 1
+  playerExperience: 1

@@ -33,8 +33,8 @@ public class RangeRenderer : MonoBehaviour
 
         for (int i = 0; i < (segments + 1); i++)
         {
-            x = Mathf.Sin(Mathf.Deg2Rad * angle) * playerStats.range;
-            y = Mathf.Cos(Mathf.Deg2Rad * angle) * playerStats.range;
+            x = Mathf.Sin(Mathf.Deg2Rad * angle) * playerStats.range / 2;
+            y = Mathf.Cos(Mathf.Deg2Rad * angle) * playerStats.range / 2;
 
             line.SetPosition(i, new Vector3(x, 0, y));
 
