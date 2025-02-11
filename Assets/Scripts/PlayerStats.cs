@@ -7,10 +7,10 @@ namespace Scripts
     [Serializable]
     public class PlayerStats : ScriptableObject
     {
-        [SerializeField] public float attackDamage = 1;
         [SerializeField] public float health = 1;
-        [SerializeField] public float attackSpeed = 1;
         [SerializeField] public float healthRegen = 1;
+        [SerializeField] public float attackDamage = 1;
+        [SerializeField] public float attackSpeed = 1;
         [SerializeField] public float criticalChance = 1;
         [SerializeField] public float criticalDamage = 1;
         [SerializeField] public float range = 10;
