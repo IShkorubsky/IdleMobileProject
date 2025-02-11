@@ -23,11 +23,11 @@ namespace Scripts
             if (currentTarget == null)
             {
                 currentTarget = GameManager.Instance.GetClosestEnemy();
+            }
 
-                if (!isAttacking)
-                {
-                    AttackEnemy(currentTarget);
-                }
+            if (!isAttacking && currentTarget != null)
+            {
+                AttackEnemy(currentTarget);
             }
         }
 

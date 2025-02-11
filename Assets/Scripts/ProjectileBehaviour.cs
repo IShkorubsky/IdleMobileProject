@@ -10,6 +10,7 @@ public class ProjectileBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy")){
             Debug.Log("Enemy Hit!");
             PlayerManager.Instance.isAttackingEvent.Invoke();
+            GameManager.Instance.RemoveEnemyFromList(other.gameObject);
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

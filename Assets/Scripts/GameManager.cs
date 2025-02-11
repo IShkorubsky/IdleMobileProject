@@ -36,15 +36,23 @@ namespace Scripts
 
         #endregion Variables
 
-        public void AddEnemyToList(GameObject enemy){
+        public void AddEnemyToList(GameObject enemy)
+        {
             enemies.Add(enemy.gameObject);
         }
 
-        public GameObject GetClosestEnemy(){
-            if(enemies == null){
-                Debug.LogError("Enemy list is empty");
+        public GameObject GetClosestEnemy()
+        {
+            if (enemies.Count != 0)
+            {
+                return enemies[0];
             }
-            return enemies[0];
+            return null;
+        }
+
+        public void RemoveEnemyFromList(GameObject enemy)
+        {
+            enemies.Remove(enemy);
         }
     }
 }
