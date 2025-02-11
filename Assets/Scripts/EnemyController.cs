@@ -17,14 +17,17 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (DistanceToTarget() > stoppingDistance)
+        if (myNavMeshAgent.isOnNavMesh)
         {
-            myNavMeshAgent.destination = targetTransform.position;
-            Vector3.MoveTowards(transform.position, myNavMeshAgent.destination, 0.1f);
-        }
-        else
-        {
-            myNavMeshAgent.destination = transform.position;
+            if (DistanceToTarget() > stoppingDistance)
+            {
+                myNavMeshAgent.destination = targetTransform.position;
+                Vector3.MoveTowards(transform.position, myNavMeshAgent.destination, 0.1f);
+            }
+            else
+            {
+                myNavMeshAgent.destination = transform.position;
+            }
         }
     }
 
