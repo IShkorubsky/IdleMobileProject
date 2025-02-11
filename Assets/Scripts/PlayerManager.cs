@@ -27,20 +27,22 @@ namespace Scripts
         #endregion
 
         #region Variables
-        [SerializeField] private ScriptableObject playerStats;
+        [SerializeField] protected PlayerStats playerStats;
         [SerializeField] private GameObject playerCharacter;
         [SerializeField] private List<Animation> playerAnimations = new List<Animation>();
         [SerializeField] private Animator playerAnimationController;
         [SerializeField] protected bool isAttacking;
 
-        private int characterLevel;
-        private int playerExperience;
-
-        [HideInInspector]public UnityEvent isAttackingEvent;
+        [HideInInspector] public UnityEvent isAttackingEvent;
         #endregion
 
         void Start()
         {
+            if (playerStats == null)
+            {
+                Debug.LogError("PlayerStats is not assigned in the PlayerManager");
+            }
+
             if (isAttackingEvent == null)
                 isAttackingEvent = new UnityEvent();
 

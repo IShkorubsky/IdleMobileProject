@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a5529cb3ea9d342be14752f5d5b1ba, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
+  attackDamage: 1
+  health: 1
+  attackSpeed: 1
+  healthRegen: 1
+  criticalChance: 1
+  criticalDamage: 1
+  range: 10
